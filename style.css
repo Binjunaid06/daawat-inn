@@ -1133,16 +1133,23 @@ footer {
         box-sizing: border-box;
     }
     .nav-links .nav-item::after {
-        display: none;
+        display: none !important;
     }
     .nav-item-dropdown {
         display: block;
         width: 100%;
     }
+    .nav-item-dropdown:hover .dropdown-menu,
+    .nav-item-dropdown.active .dropdown-menu {
+        transform: none !important;
+    }
+    .nav-item-dropdown.expanded > .nav-item {
+        border-bottom: none;
+    }
     .dropdown-menu {
         display: none;
         position: static;
-        transform: none;
+        transform: none !important;
         background-color: transparent;
         border: none;
         box-shadow: none;
