@@ -24,27 +24,25 @@
                 <span></span>
             </div>
 
-            <div class="nav-menu" id="navMenu">
-                <nav class="nav-links">
-                    <a href="#home" class="nav-item">Home</a>
-                    <a href="#about" class="nav-item">The Experience</a>
-                    <a href="#pre-order-guide" class="nav-item">Pre-Order Guide</a>
-                    <div class="nav-item-dropdown">
-                        <a href="#menu" class="nav-item">Menu ▾</a>
-                        <div class="dropdown-menu">
-                            <a href="#menu" class="dropdown-item category-trigger" data-category="savoury">Savoury</a>
-                            <a href="#menu" class="dropdown-item category-trigger" data-category="desserts">Desserts</a>
-                        </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#about" class="nav-item">The Experience</a>
+                <a href="#pre-order-guide" class="nav-item">Pre-Order Guide</a>
+                <div class="nav-item-dropdown">
+                    <a href="#menu" class="nav-item">Menu ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="#menu" class="dropdown-item category-trigger" data-category="savoury">Savoury</a>
+                        <a href="#menu" class="dropdown-item category-trigger" data-category="desserts">Desserts</a>
                     </div>
-                    <a href="#process" class="nav-item">How It Works</a>
-                </nav>
-                <div class="nav-actions">
-                    <a href="#contact" class="btn-nav-action">Contact Us</a>
-                    <a href="#" class="nav-cart-icon-btn" id="cartToggleBtn" aria-label="View Cart">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                        <span class="cart-badge" id="cartCountNav">0</span>
-                    </a>
                 </div>
+                <a href="#process" class="nav-item">How It Works</a>
+            </nav>
+            <div class="nav-actions" id="navActions">
+                <a href="#contact" class="btn-nav-action">Contact Us</a>
+                <a href="#" class="nav-cart-icon-btn" id="cartToggleBtn" aria-label="View Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="cart-badge" id="cartCountNav">0</span>
+                </a>
             </div>
         </div>
     </header>
@@ -1143,17 +1141,20 @@
 
         // --- MOBILE MENU TOGGLE ---
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.getElementById('navLinks');
+        const navActions = document.getElementById('navActions');
 
         mobileMenuToggle.addEventListener('click', () => {
             mobileMenuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navActions.classList.toggle('active');
         });
 
         document.querySelectorAll('.nav-item, .btn-nav-action').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                navActions.classList.remove('active');
             });
         });
 </script>
