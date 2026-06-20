@@ -133,6 +133,21 @@ h2 {
     display: block;
 }
 
+.mobile-menu-toggle {
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links .nav-item {
     color: rgba(18, 18, 20, 0.75);
     text-decoration: none;
@@ -1071,23 +1086,75 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .about-image-composition {
+        display: none;
+    }
     .navbar {
         padding: 15px 0;
     }
     .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    .mobile-menu-toggle {
+        display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    .mobile-menu-toggle span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: var(--carbon-dark);
+        border-radius: 3px;
+        transition: var(--transition-smooth);
+    }
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--gold-gradient);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
         gap: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.4s ease-in-out;
+    }
+    .nav-menu.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
     .nav-links {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         gap: 15px;
     }
     .nav-links .nav-item {
-        margin: 0 10px;
-        font-size: 0.8rem;
+        margin: 0;
+        font-size: 1rem;
         color: var(--carbon-dark); 
+    }
+    .nav-actions {
+        flex-direction: column;
+        gap: 15px;
     }
     .hero-section {
         height: auto;
